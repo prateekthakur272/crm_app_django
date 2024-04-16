@@ -3,3 +3,4 @@ venv/
 env/
 .env
 virtualenv/
+db.sqlite3
