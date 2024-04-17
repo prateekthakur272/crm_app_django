@@ -11,7 +11,7 @@
             <p class="card-text">Address: {{record.address}}, {{record.city}}, {{record.state}}, {{record.zip_code}}</p>
             <p class="card-text">Created: {{record.created_at}}</p>
             <a class="btn btn-secondary" href="{% url "home" %}" role="button">Back</a>
-            <a class="btn btn-secondary" href="#" role="button">Edit Record</a>
+            <a class="btn btn-secondary" href="{% url "edit" record.id %}" role="button">Edit Record</a>
             <a class="btn btn-danger" href="{% url "delete" record.id %}" role="button">Delete</a>
         </div>
     </div>

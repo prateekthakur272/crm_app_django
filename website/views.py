@@ -80,3 +80,16 @@ def add_record(request):
             redirect('add')
     else:
         return render(request, 'add_record.html', {'form':form})
+    
+
+def edit_record(request, id):
+    if not request.user.is_authenticated:
+        messages.success(request, 'You are not logged in.')
+        return redirect('home')
+    record = Record.objects.get(id=id)
+    form = AddRecordForm(request.POST or None, instance=record)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Record updated.')
+        return redirect('home')
+    return render(request, 'edit_record.html', {'form':form})
