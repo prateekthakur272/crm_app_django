@@ -1,7 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-    <h1>Prateek Thakur</h1>
+        {% if records%}
+        </br>
+        <table class="table table-striped table-light table-hover">
+            <thead class='table-dark'>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Created</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <th scope="row">{{ record.id }}</th>
+                    <td>{{ record.first_name }}</td>
+                    <td>{{ record.last_name }}</td>
+                    <td>{{ record.email }}</td>
+                    <td>{{ record.phone }}</td>
+                    <td>{{ record.address }}</td>
+                    <td>{{ record.city }}</td>
+                    <td>{{ record.created_at }}</td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+            No Records
+        {% endif %}
     {% else %}
     <div class='col-md-6 offset-md-3'>
     <h1>Login</h1>
