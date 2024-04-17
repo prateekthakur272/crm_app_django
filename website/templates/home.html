@@ -13,21 +13,22 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Address</th>
                 <th scope="col">City</th>
-                <th scope="col">Created</th>
+                <th scope="col" colspan="2">Created</th>
               </tr>
             </thead>
             <tbody>
                 {% for record in records %}
-                <tr>
-                    <th scope="row">{{ record.id }}</th>
-                    <td>{{ record.first_name }}</td>
-                    <td>{{ record.last_name }}</td>
-                    <td>{{ record.email }}</td>
-                    <td>{{ record.phone }}</td>
-                    <td>{{ record.address }}</td>
-                    <td>{{ record.city }}</td>
-                    <td>{{ record.created_at }}</td>
-                  </tr>
+                  <tr>
+                      <th scope="row">{{ record.id }}</th>
+                      <td>{{ record.first_name }}</td>
+                      <td>{{ record.last_name }}</td>
+                      <td>{{ record.email }}</td>
+                      <td>{{ record.phone }}</td>
+                      <td>{{ record.address }}</td>
+                      <td>{{ record.city }}</td>
+                      <td>{{ record.created_at }}</td>
+                      <td><a href="{% url "record" record.id %}">View</a></td>
+                    </tr>
                 {% endfor %}
             </tbody>
           </table>
